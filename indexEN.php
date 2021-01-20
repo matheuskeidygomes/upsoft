@@ -1,10 +1,33 @@
+<?php
+
+if(isset($_POST['nome']) &&!empty($_POST['nome'])) {
+
+  $nome = addslashes($_POST['nome']);
+  $email = addslashes($_POST['email']);
+  $msg = addslashes($_POST['mensagem']);
+
+  $para = "matheuskeidygomes@gmail.com";
+  $assunto = "Contato Cliente Upsoft";
+  $corpo = "Nome: ".$nome." - E-mail: ".$email." - Mensagem: ".$msg;
+  $cabeçalho = "From: email@.com.br"."\r\n".
+               "Reply-To: ".$email."\r\n".
+               "X-Mailer: PHP/".phpversion();
+
+  mail($para, $assunto, $corpo, $cabeçalho);
+
+  echo "<h2> Email successfully sent! </h2>";
+  exit;
+}
+
+?>
+
 <!DOCTYPE html>
 
 <html>
 
 <head>
 
-  <title> Upsoft - Desenvolvimento de Sistemas </title>
+  <title> Upsoft - System development </title>
 
   <meta charset="UTF-8" />
 
@@ -17,7 +40,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
 
 
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
 
 
 
@@ -123,36 +146,34 @@
 
     .ptbutton {
       border-color: rgb(157, 32, 169);
-      background: linear-gradient(to top, #ed1b64, rgb(157, 32, 169));
-      color: white;
+      color: #bd017b;
       font-weight: bold;
 
     }
 
     .ptbutton:hover {
-
+      background: linear-gradient(to top, #ed1b64, rgb(157, 32, 169));
       border-color: transparent;
       font-weight: bold;
       color: white;
-      font-weight: bold;
       ;
     }
 
     .engbutton {
       border-color: rgb(157, 32, 169);
-      color: #bd017b;
+      background: linear-gradient(to top, #ed1b64, rgb(157, 32, 169));
+      color: white;
       font-weight: bold;
-
 
     }
 
+
     .engbutton:hover {
-      background: linear-gradient(to top, #ed1b64, rgb(157, 32, 169));
       border-color: transparent;
       font-weight: bold;
       color: white;
+      font-weight: bold;
     }
-
 
     @media only screen and (min-width:250px) and (max-width:600px) {
 
@@ -187,7 +208,6 @@
       }
 
     }
-
   </style>
 
 </head>
@@ -204,7 +224,7 @@
 
         <div class=" col-lg" style="padding: 0px; text-align: center;">
 
-        <a href="index.html"> <img src="assets/imagens/logo.png" width="300" /> </a>
+        <a href="indexEN.php"> <img src="assets/imagens/logo.png" width="300" /> </a>
 
       </div>
 
@@ -227,9 +247,9 @@
               <a href="#sobre" class="btn nav-item nav-link scroll" data-toggle="" data-target="#aupsoft"
                 style="font-weight: bold; color: rgb(255, 255, 255);"> Upsoft</a>
               <a href="#service" class="btn nav-item nav-link scroll" data-toggle="" data-target="#servicos"
-                style="font-weight: bold; color: rgb(255, 255, 255);"> Serviços </a>
+                style="font-weight: bold; color: rgb(255, 255, 255);"> Services </a>
               <a href="#" class="btn nav-item nav-link" data-toggle="modal" data-target="#contato"
-                style="font-weight: bold; color: rgb(255, 255, 255);"> Contate-nos </a>
+                style="font-weight: bold; color: rgb(255, 255, 255);"> Contact us </a>
 
 
 
@@ -239,14 +259,14 @@
 
                 <div class="modal-dialog modal-dialog-centered modal-lg">
 
-                  <div id="modal" class="modal-content" style="background-color: #101010; ">
+                  <div class="modal-content" style="background-color: #101010; ">
 
                     <div class="modal-header" style="border: 0px;">
 
                       <h3 class="modal-title" style="background: -webkit-linear-gradient(#ed1b64, rgb(157, 32, 169));
-                      -webkit-background-clip: text;
-                      -webkit-text-fill-color: transparent; font-weight: bold;"> Entre em contato <img
-                          src="assets/imagens/contato.png" width="25" style="margin-left: 10px;" /> </h3>
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent; font-weight: bold;"> Contact-us <img src="assets/imagens/contato.png"
+                          width="25" style="margin-left: 10px;" /> </h3>
 
                       <button class="close" data-dismiss="modal"> <span>&times;</span> </button>
 
@@ -265,10 +285,11 @@
 
                           </br>
 
-                          <p style="color:white; text-align: left; font-size: 18px;">  Fale conosco para mais informações a respeito de
-                            projetos, orçamentos ou dúvidas. Preencha os campos necessários que retornaremos o contato o
-                            mais breve possível. Caso sua necessidade seja solicitar um orçamento, favor especificar
-                            todos os detalhes a respeito de seu projeto. </p>
+                          <p style="color:white; text-align: left; font-size: 18px;"> Contact us for more information
+                            about projects,
+                            budgets or questions. Fill in the fields and we will get back to you as soon as possible. If
+                            your request for a quote is required, please specify all details regarding your project.
+                          </p>
 
                         </div>
 
@@ -276,12 +297,12 @@
 
                           </br>
 
-                          <form action="envio.php" name="formulario" method="POST">
+                          <form method="POST" id="formulario" onsubmit="validaForm(); return false;">
 
                             <div class="form-group">
 
                               <input id="nome" type="text" name="nome" class="form-control"
-                                placeholder="Nome Completo" />
+                                placeholder="Complete Name" />
                               </br>
 
                             </div>
@@ -297,14 +318,14 @@
                             <div class="form-group">
 
                               <textarea id="mensagem" type="text" name="mensagem" class="form-control"
-                                placeholder=" Digite aqui sua mensagem. " height="200"> </textarea>
+                                placeholder=" Type here your message. "> </textarea>
                               </br>
 
                             </div>
 
                             <div class="form-group">
 
-                              <input type="submit" value="Enviar" class="btn btn-primary form-control pink"
+                              <input type="submit" value="Send" class="btn btn-primary form-control pink"
                                 style="border: 0px;" />
 
                             </div>
@@ -340,9 +361,9 @@
 
             <div class="btn btn-group botoes">
 
-              <a href="index.html" class="btn btn-outline ptbutton"> PT </a>
+              <a href="index.php" class="btn btn-outline ptbutton"> PT </a>
 
-              <a href="indexEN.html" class="btn btn-outline engbutton"> ENG </a>
+              <a href="indexEN.php" class="btn btn-outline engbutton"> ENG </a>
 
             </div>
 
@@ -392,7 +413,7 @@
 
           <div class="col">
 
-            <h1 class="gradiente" style="padding: 20px; text-align: center;"> EXPERIMENTE </br> A </br> MELHOR ESCOLHA
+            <h1 class="gradiente" style="padding: 20px; text-align: center;"> TRY THE </br> BEST CHOICE
             </h1>
 
 
@@ -423,8 +444,8 @@
 
         <img src="assets/imagens/profits.png" width="45" style="margin: 20px 0px 0px 0px" />
 
-        <h1 style="margin: 20px 40px 40px 40px; color: white; font-size: 18px; font-weight: bold;"> Softwares </br> de
-          Ponta </h1>
+        <h1 style="margin: 20px 40px 40px 40px; color: white; font-size: 18px; font-weight: bold;"> Advanced </br>
+          Softwares </h1>
 
       </div>
 
@@ -432,8 +453,8 @@
 
         <img src="assets/imagens/qualidade.png" width="45" style="margin: 20px 0px 0px 0px" />
 
-        <h1 style="margin: 20px 40px 40px 40px; color: white; font-size: 18px; font-weight: bold;"> Qualidade </br>
-          Comprovada </h1>
+        <h1 style="margin: 20px 40px 40px 40px; color: white; font-size: 18px; font-weight: bold;">
+          Quality </br> Assurance </h1>
 
       </div>
 
@@ -442,7 +463,9 @@
         <img src="assets/imagens/luminaria.png" width="45" style="margin: 20px 0px 0px 0px" />
 
         <h1 style="margin: 20px 40px 40px 40px; color: white; font-size: 18px; font-weight: bold;">
-          Idéias </br> Inovadoras
+
+          Innovative </br> Ideas
+
         </h1>
 
       </div>
@@ -484,7 +507,7 @@
 
       <div class="col-lg" style="padding: 0px;">
 
-        <h2 id="sobre" style="padding: 40px 35px 0px 30px; color:white;"> A Upsoft <img
+        <h2 id="sobre" style="padding: 40px 35px 0px 30px; color:white;"> The Upsoft <img
             src="assets/imagens/processador.png" style="margin-left:10px;" width="40" height="40" /> </h2>
 
         <div class="row"
@@ -527,7 +550,7 @@
 
         <div class="col-lg-4" style="margin: 0px; padding:25px;">
 
-          <h1 class="scroll" id="service" style="color:white; padding: 20px 0px 10px 0px ; "> Serviços <img
+          <h1 class="scroll" id="service" style="color:white; padding: 20px 0px 10px 0px ; "> Services <img
               src="assets/imagens/serviços.png" width="35" style="margin-left:10px;" /> </h2>
 
             <div class="row"
@@ -546,34 +569,34 @@
             <div class="col-lg-6" style="padding: 30px 20px; ">
 
               <h2 class="scroll" id="service" style="color:white; padding: 20px 0px 10px 0px ; font-size: 25px;">
-                Sistemas <img src="assets/imagens/network.png" width="35" style="margin-left:10px;" /> </h2>
+                Systems <img src="assets/imagens/network.png" width="35" style="margin-left:10px;" /> </h2>
 
               <div class="row"
                 style="margin: 0px 20px 0px 30px; background: linear-gradient(to right, #ed1b64, rgb(157, 32, 169)); height:4px; width: 100px; border-radius: 5px;">
 
               </div>
 
-              <p style=" color:white; padding: 20px 0px 10px 0px ; font-size: 18px  "> Desenvolvimento de aplicações e
-                sistemas web, ajudamos a por sua ideia na web, seja um site estático ou dinâmico ajudamos a criar,
-                desenvolver e publicar seu projeto, utilizando as tecnologias mais atuais do mercado, assim como
-                oferecemos todo o suporte necessário para seu crescimento no meio digital. </p>
+              <p style=" color:white; padding: 20px 0px 10px 0px ; font-size: 18px  "> Application development and
+                web systems, we help to put your idea on the web, be it a static or dynamic website we help to create,
+                develop and publish your project, using the most current technologies in the market, as well as
+                we offer all the support necessary for your growth in the digital environment. </p>
 
             </div>
 
             <div class="col-lg-6" style="padding: 30px 20px;">
 
               <h2 class="scroll" id="service" style="color:white; padding: 20px 0px 10px 0px ; font-size: 25px; ">
-                Aplicativos <img src="assets/imagens/smartphone.png" width="35" style="margin-left:10px;" /> </h2>
+                Aplications <img src="assets/imagens/smartphone.png" width="35" style="margin-left:10px;" /> </h2>
 
               <div class="row"
                 style="margin: 0px 20px 0px 30px; background: linear-gradient(to right, #ed1b64, rgb(157, 32, 169)); height:4px; width: 100px; border-radius: 5px;">
 
               </div>
 
-              <p style=" color:white; padding: 20px 0px 10px 0px ; font-size: 18px "> Criação e desenvolvimento de
-                soluções para mobile, criando um app único e personalizado para atender o seu plano de negócio e
-                transformar seu sonho em realidade, utilizamos as melhores tecnologias para proporcionar um app leve e
-                fluído, combinando UX e UI para maximizar a experência do usuário. </p>
+              <p style=" color:white; padding: 20px 0px 10px 0px ; font-size: 18px "> Creation and development of
+                solutions for mobile, creating a unique and personalized app to meet your business plan and
+                transform your dream into reality, we use the best technologies to provide a lightweight and
+                fluid, combining UX and UI to maximize the user experience. </p>
 
             </div>
 
@@ -587,10 +610,11 @@
 
               </div>
 
-              <p style=" color:white; padding: 20px 0px 10px 0px ; font-size: 18px ;"> Seu negócio online com todo
-                suporte necessário, ajudamos você a migrar para o mundo digital, aumente seu alcance consolidando sua
-                presença online, utilizamos estratégias avançadas de business intelligence para traçar metas e
-                consolidar sua ideia, com todas as tomadas de decisões baseadas em dados.</p>
+              <p style=" color:white; padding: 20px 0px 10px 0px ; font-size: 18px ;">
+                Your online business with
+                necessary support, we help you migrate to the digital world, increase your reach by consolidating your
+                online presence, we use advanced business intelligence strategies to set goals and
+                consolidate your idea, with all data-based decision making.</p>
 
             </div>
 
@@ -604,11 +628,11 @@
 
               </div>
 
-              <p style=" color:white; padding: 20px 0px 10px 0px ; font-size: 18px  "> Acompanhe a performance do seu
-                negócio de maneira fácil e intuitiva, desenvolvemos um sistema onde proporcionamos o acompanhamento dos
-                resultados da sua empresa, seja ele diário, mensal ou até mesmo em tempo real, facilitando o
-                acompanhamento do seu negócio e proporcionando melhores oportunidades de crescimento baseadas em seus
-                objetivos traçados. </p>
+              <p style=" color:white; padding: 20px 0px 10px 0px ; font-size: 18px  ">Track the performance of your
+                business in an easy and intuitive way, we developed a system where we provide monitoring of
+                results of your company, be it daily, monthly or even in real time, facilitating the
+                monitoring your business and providing better growth opportunities based on your
+                goals set. </p>
 
             </div>
 
@@ -642,7 +666,7 @@
 
   </section>
 
-  </br>
+  </br> </br>
 
 
 
@@ -658,8 +682,8 @@
 
         <div class="col" style="padding: 20px;  margin: 0px;">
 
-          <h2 class="scroll" id="service" style="color:white; padding: 0px 0px 10px 0px ;"> Projetos Modernos e
-            Profissionais </h2>
+          <h2 class="scroll" id="service" style="color:white; padding: 0px 0px 10px 0px ;">
+            Modern and Professional Projects </h2>
 
           <div class="row"
             style="margin: 0px 20px 0px 30px; background: linear-gradient(to right, #ed1b64, rgb(157, 32, 169)); height:4px; width: 50px; border-radius: 5px;">
@@ -747,9 +771,8 @@
 
         <div class="col" style="background-color:#101010; padding: 0px; margin: 0px;">
 
-          <p class="text-center" style="color: white; margin: 15px; font-size: 11px;"> Copyright © 2021 Upsoft
-            Todos
-            os direitos reservados.</p>
+          <p class="text-center" style="color: white; margin: 15px; font-size: 11px;"> Copyright © 2021 Upsoft Company
+            All rights reserved.</p>
 
         </div>
 
@@ -787,6 +810,23 @@
       });
     });
 
+    function validaForm() {
+      erro = false;
+      if ($('#nome').val() == '') {
+        alert('You need to enter the name'); erro = true;
+      }
+      if ($('#email').val() == '' && !erro) {
+        alert('You need to enter the e-mail'); erro = true;
+      }
+      if ($('#mensagem').val() == '' && !erro) {
+        alert('You need to enter the message'); erro = true;
+      }
+
+      //se nao tiver erros
+      if (!erro) {
+        $('#formulario').submit();
+      }
+    }
 
 
   </script>
@@ -795,4 +835,4 @@
 
 </html>
 
-<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  WEBDEV @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ MATHEUS KEIDY E BRUNO PALHANO WEBDEV @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
