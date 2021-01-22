@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap');
+
+body {
+  background-color: #232323;
+  font-family: Poppins, sans-serif;
+}
+
+.btn.focus,
+.btn:focus {
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(2, 2, 2, 0);
+}
+
+.navbar-nav a:hover {
+  border-bottom: 2px solid #ed1b64;
+}
+
+#hover:hover {
+  background: linear-gradient(to bottom, #ed1b64, rgb(157, 32, 169));
+  color: white;
+}
+
+.pink {
+  background: linear-gradient(to top, #ed1b64, rgb(157, 32, 169));
+  color: white;
+}
+
+.color {
+  background-color: #101010;
+
+}
+
+.color:hover {
+  background-color: rgb(151, 11, 100);
+  -webkit-transition: 0.5s ease-out;
+  -moz-transition: 0.5s ease-out;
+  -o-transition: 0.5s ease-out;
+  transition: 0.5s ease-out;
+
+
+}
+
+h1.gradiente {
+  background: -webkit-linear-gradient(#ed1b64, rgb(157, 32, 169));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 50px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+
+}
+
+.parallax {
+  background-image: url("./assets/imagens/background.png");
+
+  height: 300px;
+
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.parallax2 {
+  background-image: url("./assets/imagens/background2.png");
+
+  height: 300px;
+
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.parallax3 {
+  background-image: url("./assets/imagens/background3.png");
+
+  height: 300px;
+
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#scrollup {
+
+  position: fixed;
+  bottom: 60px;
+  right: 40px;
+  width: 40px;
+  height: 40px;
+
+}
+
+#scrollup:hover {
+  cursor: pointer;
+}
+
+.ptbutton {
+  border-color: rgb(157, 32, 169);
+  background: linear-gradient(to top, #ed1b64, rgb(157, 32, 169));
+  color: white;
+  font-weight: bold;
+
+}
+
+.ptbutton:hover {
+
+  border-color: transparent;
+  font-weight: bold;
+  color: white;
+  font-weight: bold;
+  ;
+}
+
+.engbutton {
+  border-color: rgb(157, 32, 169);
+  color: #bd017b;
+  font-weight: bold;
+
+
+}
+
+.engbutton:hover {
+  background: linear-gradient(to top, #ed1b64, rgb(157, 32, 169));
+  border-color: transparent;
+  font-weight: bold;
+  color: white;
+}
+
+
+@media only screen and (min-width:250px) and (max-width:600px) {
+
+  .botoes {
+    margin-left: 30px;
+  }
+
+}
+
+@media only screen and (min-width:300px) and (max-width:450px) {
+
+  h1.gradiente {
+    font-size: 30px;
+  }
+
+}
+
+@media only screen and (min-width:990px) and (max-width:1200px) {
+
+
+
+  .ptbutton {
+    height: 40px;
+  }
+
+  .engbutton {
+    height: 40px;
+  }
+
+  .redesicons {
+    margin-top: 15px;
+  }
+
+}

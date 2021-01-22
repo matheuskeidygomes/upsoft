@@ -6,17 +6,16 @@ if(isset($_POST['nome']) &&!empty($_POST['nome'])) {
   $email = addslashes($_POST['email']);
   $msg = addslashes($_POST['mensagem']);
 
-  $para = "matheuskeidygomes@gmail.com";
+  $para = "contato@upsoftdev.com";
   $assunto = "Contato Cliente Upsoft";
   $corpo = "Nome: ".$nome." - E-mail: ".$email." - Mensagem: ".$msg;
-  $cabeçalho = "From: email@.com.br"."\r\n".
+  $cabeçalho = "From: administracao@upsoftdev.com"."\r\n".
                "Reply-To: ".$email."\r\n".
                "X-Mailer: PHP/".phpversion();
 
   mail($para, $assunto, $corpo, $cabeçalho);
 
-  echo "<h2> E-mail enviado com sucesso! </h2>";
-  exit;
+  echo "<script> alert('Email enviado com sucesso!') </script>";
 }
 
 ?>
@@ -208,6 +207,14 @@ if(isset($_POST['nome']) &&!empty($_POST['nome'])) {
       .redesicons {
         margin-top: 15px;
       }
+
+    }
+
+    @media only screen and (min-width:300px) and (max-width:770px) {
+
+      .tecimg {
+        text-align:center;
+      }     
 
     }
   </style>
@@ -515,7 +522,7 @@ if(isset($_POST['nome']) &&!empty($_POST['nome'])) {
 
         </div>
 
-        <h5 style="padding: 30px 35px 0px 30px; color:white;"> Descrição páginas home teste </h5>
+        <h5 style="padding: 30px 35px 0px 30px; color:white;"> Somos uma empresa de desenvolvimento de softwares modernos. Trabalhamos em projetos customizados para os mais variados ramos de atividades. Nosso princípio é o desenvolvimento de aplicações adaptadas a necessidade de cada cliente. Nosso time de desenvolvedores possui experiência e grandes talentos que quando combinados, produzem resultados incomparáveis. Somos uma equipe multidisciplinar, qualificada e focada no entendimento do negócio de cada cliente para assim construirmos soluções para todo tipo de segmento. </h5>
 
       </div>
 
@@ -557,8 +564,6 @@ if(isset($_POST['nome']) &&!empty($_POST['nome'])) {
               style="margin: 0px 20px 0px 20px; background: linear-gradient(to right, #ed1b64, rgb(157, 32, 169)); height:4px; width: 100px; border-radius: 5px;">
 
             </div>
-
-            <h5 style=" color:white; padding: 20px 0px 10px 0px ;  "> Descrição páginas home teste </h5>
 
         </div>
 
@@ -620,7 +625,7 @@ if(isset($_POST['nome']) &&!empty($_POST['nome'])) {
             <div class="col-lg-6" style="padding: 30px 20px;">
 
               <h2 class="scroll" id="service" style="color:white; padding: 20px 0px 10px 0px ; font-size: 25px; ">
-                Softwares <img src="assets/imagens/monitor.png" width="35" style="margin-left:10px;" /> </h2>
+                Dashboards <img src="assets/imagens/monitor.png" width="35" style="margin-left:10px;" /> </h2>
 
               <div class="row"
                 style="margin: 0px 20px 0px 30px; background: linear-gradient(to right, #ed1b64, rgb(157, 32, 169)); height:4px; width: 100px; border-radius: 5px;">
@@ -646,6 +651,37 @@ if(isset($_POST['nome']) &&!empty($_POST['nome'])) {
 
   </div>
 
+
+  </br> </br>
+
+
+  <div class="container" style="padding: 0px; background-color: #232323 ">
+
+    <div class="row justify-content-center" style="margin:0px ;">
+
+      <div class="row" style="padding: 0px; margin: 0px;">
+
+        <div class="col" style="padding: 20px;  margin: 0px;">
+
+          <h2 class="scroll" id="service" style="color:white; padding: 0px 0px 10px 0px ;"> Metodologias ágeis de desenvolvimento </h2>
+
+          <div class="row"
+            style="margin: 0px 20px 0px 30px; background: linear-gradient(to right, #ed1b64, rgb(157, 32, 169)); height:4px; width: 50px; border-radius: 5px;">
+
+          </div>
+
+          <h5 style=" color:white; padding: 20px 0px 10px 0px ;"> Fazemos o uso de metodologias ágeis, que permitem que você acompanhe o desenvolvimento do projeto com total conforto e segurança em relação aos prazos estabelecidos, com entregas semanais, o que permite que você possa ficar totalmente por dentro do que está sendo desenvolvido, proporcionando assim uma visão geral do seu projeto e como sua idéia se desenvolvera. </h5>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  </br> </br>
+
   <section class="parallax3">
 
     <div class="container-fluid">
@@ -665,13 +701,75 @@ if(isset($_POST['nome']) &&!empty($_POST['nome'])) {
 
   </section>
 
-  </br>
+
+  <div class="container-fluid" style="padding: 0px; background-color:#101010;">
+
+    <div class="container" style="padding: 0px; background-color:#101010;">
+
+      <div class="row" style="margin: 0px;">
+
+        <div class="col-md" style="padding:25px;  ">
+
+          <div class="row service-one-wrapper">
+
+            <div class="col-md-2 tecimg" style="padding: 30px 20px; ">
+
+             <img class="img-fluid" src="assets/imagens/React.png" width="150px"/>
 
 
+            </div>
+
+            <div class="col-md-2 tecimg" style="padding: 30px 20px;">
+
+            <img class="img-fluid" src="assets/imagens/reactnative.png" width="150px"/>
+
+          
+
+            </div>
+
+            <div class="col-md-2 tecimg" style="padding: 30px 20px;">
+
+            <img class="img-fluid" src="assets/imagens/node.png" width="150px"/>
 
 
+            </div>
 
-  <!-- @@@@@@@@@@@@@@@@@@@ SLIDESHOW @@@@@@@@@@@@@@@@@@ -->
+            <div class="col-md-2 tecimg" style="padding: 30px 20px;">
+
+            <img class="img-fluid" src="assets/imagens/php.png" width="150px"/>
+
+             
+
+            </div>
+
+            <div class="col-md-2 tecimg" style="padding: 30px 20px;">
+
+            <img class="img-fluid" src="assets/imagens/laravel.png" width="150px"/>
+
+             
+
+            </div>
+
+            <div class="col-md-2 tecimg" style="padding: 30px 20px;">
+
+            <img class="img-fluid" src="assets/imagens/vue.png" width="150px"/>
+
+             
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+  </br> </br>
 
   <div class="container" style="padding: 0px; background-color: #232323 ">
 
@@ -681,15 +779,14 @@ if(isset($_POST['nome']) &&!empty($_POST['nome'])) {
 
         <div class="col" style="padding: 20px;  margin: 0px;">
 
-          <h2 class="scroll" id="service" style="color:white; padding: 0px 0px 10px 0px ;"> Projetos Modernos e
-            Profissionais </h2>
+          <h2 class="scroll" id="service" style="color:white; padding: 0px 0px 10px 0px ;"> Projetos Modernos e Personalizados </h2>
 
           <div class="row"
             style="margin: 0px 20px 0px 30px; background: linear-gradient(to right, #ed1b64, rgb(157, 32, 169)); height:4px; width: 50px; border-radius: 5px;">
 
           </div>
 
-          <h5 style=" color:white; padding: 20px 0px 10px 0px ;"> Descrição páginas home teste </h5>
+          <h5 style=" color:white; padding: 20px 0px 10px 0px ;"> Através da nossa equipe de programadores, criamos seu projeto de maneira personalizada, entendendo sua idéia e aplicando sobre ela uma solução de desenvolvimento. </h5>
 
         </div>
 
@@ -699,7 +796,13 @@ if(isset($_POST['nome']) &&!empty($_POST['nome'])) {
 
   </div>
 
-  </br> </br> </br>
+  </br> 
+
+
+
+
+  <!-- @@@@@@@@@@@@@@@@@@@ SLIDESHOW @@@@@@@@@@@@@@@@@@ -->
+
 
 
   <div class="container" style="padding: 0px;">
@@ -720,13 +823,13 @@ if(isset($_POST['nome']) &&!empty($_POST['nome'])) {
 
           <div class="carousel-item active">
 
-            <img src="assets/imagens/image1.png" class="w-100">
+            <img src="assets/imagens/slideimg.jpg" class="w-100">
 
           </div>
 
           <div class="carousel-item">
 
-            <img src="assets/imagens/image2.jpg" class="w-100" />
+            <img src="assets/imagens/slideimg.jpg" class="w-100" />
 
           </div>
 
@@ -770,7 +873,7 @@ if(isset($_POST['nome']) &&!empty($_POST['nome'])) {
 
         <div class="col" style="background-color:#101010; padding: 0px; margin: 0px;">
 
-          <p class="text-center" style="color: white; margin: 15px; font-size: 11px;"> Copyright © 2021 Upsoft
+          <p class="text-center" style="color: white; margin: 15px; font-size: 12px;"> Copyright © 2021 Upsoft
             Todos
             os direitos reservados.</p>
 
